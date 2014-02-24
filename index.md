@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Hello World!
-tagline: Supporting tagline
+title: Stay Hungry,Stay Foolish!
+tagline: KEEP MOVING
 ---
 {% include JB/setup %}
 
@@ -11,9 +11,9 @@ tagline: Supporting tagline
 
 
     
-    title : My Blog =)
+    探寻内心
     
-    不精于技术
+      不精于技术
       不甘于平庸
       不希望止步
       不放弃梦想
