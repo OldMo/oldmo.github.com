@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Stay Hungry,Stay Foolish!
+title: 我的心中尚未崩坏的地方
 tagline: KEEP MOVING
 ---
 {% include JB/setup %}
