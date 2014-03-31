@@ -1,0 +1,56 @@
+---
+layout: post
+title: "C#获取内外网IP"
+description: ""
+category: 工作生涯
+tags: [C#,IP地址]
+---
+由于IP分内网和外网，所以通过程序自动获取IP有要分情况来实现，两种实现方式是很不一样的。内网IP可以直接通过获取本机的网络信息来得到，但是外网IP确不可以，需要借助IP地址的网页信息获取，下面介绍我获取这两种IP的方式。
+
+###内网IP
+内网IP获取方式通过DNS类获取主机名字来获得，具体方法如下
+<code>
+    public static IPAddress GetLocalIP()
+    {
+        IPAddress[] hostAddresses = Dns.GetHostAddresses(Dns.GetHostName());
+        foreach (IPAddress address in hostAddresses)
+        {
+            if (address.AddressFamily == AddressFamily.InterNetwork)
+            {
+                return address;
+            }
+        }
+        return hostAddresses[0];
+    }
+
+
+</code>
+
+###内网IP
+外网IP获取需要借助于网页的IP获取工具，通过建立网页查询请求来获取IP查询网页的回馈信息，过滤信息获取本机的外部IP地址，这里有个受限制的问题是，如果访问的网页无效了，就无法获取了，因此需要找权威IP获取页面。
+<code>
+      public static  string GetPublicIP()
+        {
+            string tempip = "";
+            try
+            {
+                WebRequest wr = WebRequest.Create("http://iframe.ip138.com/ic.asp");
+                Stream s = wr.GetResponse().GetResponseStream();
+                StreamReader sr = new StreamReader(s, Encoding.Default);
+                string all = sr.ReadToEnd(); //读取网站的数据
+
+                int start = all.IndexOf("[") + 1;
+                int end = all.IndexOf("]", start);
+                tempip = all.Substring(start, end - start);
+                sr.Close();
+                s.Close();
+               
+            }
+            catch
+            {
+            }
+            return tempip;
+        }
+</code>
+
+
