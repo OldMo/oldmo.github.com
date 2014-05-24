@@ -1,49 +1,76 @@
-<div class="page-header">
-  <h1>{{ page.title }} {% if page.tagline %}<small>{{page.tagline}}</small>{% endif %}</h1>
-</div>
+<article class="unit-article layout-post">
+	<div class="unit-inner unit-article-inner">
+		<div class="content">
+			<header>
+				<div class="unit-head">
+					<div class="unit-inner unit-head-inner">
+						<h3 class="h2 entry-title">{{ page.title }}</h3>
+					</div><!-- unit-inner -->
+				</div><!-- unit-head -->
+			</header>
 
-<div class="row-fluid post-full">
-  <div class="span12">
-    <div class="date">
-      <span>{{ page.date | date_to_long_string }}</span>
-    </div>
-    <div class="content">
-      {{ content }}
-    </div>
+			<div class="bd">
+				<div class="entry-content">
+					{{ content }}
+					<div class="meta">
+						<p class="date-publish">
+							Published: 
+							<date class="date-pub" title="{{ page.date | date_to_xmlschema }}" datetime="{{ page.date | date_to_xmlschema }}" pubdate>
+							<span class="month"><abbr>{{ page.date | date: '%B' }}</abbr></span>
+							<span class="day">{{ page.date | date: '%d' }}</span>
+							<span class="year">{{ page.date | date: '%Y' }}</span>
+							</date>
+						</p>
+						<ul class="list-category list-linear">
+							<li class="list-head">category: </li>
+							{% assign categories_list = page.categories %}
+							{% include JB/categories_list %}
+						</ul>
+						<ul class="list-tag list-linear">
+							<li class="list-head">tags: </li>
+							{% assign tags_list = page.tags %}
+							{% include JB/tags_list %}
+						</ul>
+					</div><!-- meta -->
+				</div><!-- entry-content -->
+					
+				<div class="right-content">
+					<div class="about"><p>{{ site.author.about }}</p>
+							{{ site.author.introduce }}
+					</div>
+					<div class="links"><p>{{ site.author.blogs }}</p>
+							{{site.author.bloglinks}}
+					</div>
+				</div><!-- right-content -->
+					
+					<!-- UY BEGIN -->
+						<div id="uyan_frame"></div>
+						<script type="text/javascript" id="UYScript" src="http://v1.uyan.cc/js/iframe.js?UYUserId=1796115" async=""></script>
+					<!-- UY END -->
+				
+			</div><!-- bd -->
+			
+			<footer class="unit-foot">
+				<div class="unit-inner unit-foot-inner">
+					<nav class="pagination">
+						<ul>
+							{% if page.previous %}
+							<li class="prev"><a class="internal" rel="prev"  href="{{ page.previous.url }}" title="View {{ page.previous.title }}">&laquo; {{ page.previous.title }}</a></li>
+							{% endif %}
+							{% if page.previous and page.next %}
+							<li class="pipe"> | </li>
+							{% endif %}
+							{% if page.next %}
+							<li class="next"><a class="internal" rel="next"  href="{{ page.next.url }}" title="View {{ page.next.title }}">{{ page.next.title }} &raquo;</a></li>
+							{% endif %}
+						</ul>
+					</nav>
+					<p class="gotop">
+						<a href="#page">Back to Top</a>
+					</p>
+				</div>
+			</footer>
 
-  {% unless page.categories == empty %}
-    <ul class="tag_box inline">
-      <li><i class="icon-folder-open"></i></li>
-      {% assign categories_list = page.categories %}
-      {% include JB/categories_list %}
-    </ul>
-  {% endunless %}  
-
-  {% unless page.tags == empty %}
-    <ul class="tag_box inline">
-      <li><i class="icon-tags"></i></li>
-      {% assign tags_list = page.tags %}
-      {% include JB/tags_list %}
-    </ul>
-  {% endunless %}  
-
-    <hr>
-    <div class="pagination">
-      <ul>
-      {% if page.previous %}
-        <li class="prev"><a href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">&larr; Previous</a></li>
-      {% else %}
-        <li class="prev disabled"><a>&larr; Previous</a></li>
-      {% endif %}
-        <li><a href="{{ BASE_PATH }}{{ site.JB.archive_path }}">Archive</a></li>
-      {% if page.next %}
-        <li class="next"><a href="{{ BASE_PATH }}{{ page.next.url }}" title="{{ page.next.title }}">Next &rarr;</a></li>
-      {% else %}
-        <li class="next disabled"><a>Next &rarr;</a>
-      {% endif %}
-      </ul>
-    </div>
-    <hr>
-    {% include JB/comments %}
-  </div>
-</div>
+		</div><!-- content -->
+	</div><!-- unit-inner -->
+</article>
