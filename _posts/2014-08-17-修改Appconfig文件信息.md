@@ -10,8 +10,9 @@ tags: ""
 开发Winform应用程序时，为了配置方便，需要设置一些数据库连接信息和服务器ip信息，因此需要读取和修改app.config文件。很多操作这个文件的方法都是基于ConfigurationManger类，这个类对于操作appSettings和connectionStrings是比较简单的，但是如果碰上了自定义的一些节点，就会发现不够用了，需要用到xml的解析，本来config文件也就是xml文件的结构，因此用xml解析也是比较容易的。
 
 
-下面的代码信息是App.config中需要读取和修改信息，分别通过两种方式去实现，对connectionStrings 节点的操作用ConfigurationManager类实现，对superSocket节点的操作用xml方式实现。
-###App.config文件信息
+下面的代码信息是App.config中需要读取和修改信息，分别通过两种方式去实现，对connectionStrings 节点的操作用ConfigurationManager类实现，对superSocket节点的操作用xml方式实现。  
+
+###App.config文件信息  
 
      <connectionStrings>
          < add name ="PublicSecurityPatrolDbEntities " connectionString=" metadata=res://*/PSPIDbModel.csdl|res://*/PSPIDbModel.ssdl|res://*/PSPIDbModel.msl;provider=System.Data.SqlClient;provider connection string= &quot;data source=192.168.1.118,1433;initial catalog=CarMonitor;persist security info=True;user id=sa;password=123456;multipleactiveresultsets=True;application name=EntityFramework&quot;" providerName=" System.Data.EntityClient" />
@@ -27,11 +28,11 @@ tags: ""
     
         </ servers>
 
-    < serverTypes>
-      < add name ="GPSSocketService " type ="CarMonitor.GPSServer,CarMonitor "/>
-      < add name ="PageServerService " type ="CarMonitor.PageServer,CarMonitor "/>
-    </ serverTypes>
-  </superSocket>   
+            < serverTypes>
+            < add name ="GPSSocketService " type ="CarMonitor.GPSServer,CarMonitor "/>
+            < add name ="PageServerService " type ="CarMonitor.PageServer,CarMonitor "/>
+       </ serverTypes>
+    </superSocket>   
 
 
 ###XML方式读取和更新自定义节点信息
