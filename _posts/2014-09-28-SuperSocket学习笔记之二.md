@@ -73,10 +73,14 @@ SS的作者相当牛，在源码中已经附带了一个基于GPS的服务器，
 WebSocket是HTML5中的一种新的协议，更多的资料可以看这里[
 使用 HTML5 WebSocket 构建实时 Web 应用
 ](http://www.ibm.com/developerworks/cn/web/1112_huangxa_websocket/)，这可是一个非常好玩有用的技术，可以通过这种技术实现后台应用和前端页面的实时通信，而且还是基于TCP方式。在这里不多介绍这个东西，我们只需要知道websocket在实现前后端通信时需要做两部分工作，第一部分，实现一个加入的websocket协议的tcp服务器，相当于是在普通的TCP服务器上加入一个websocket的协议处理操作；第二部分，实现前台的接口调用，websocket提供了js的调用接口，很简单。
-本系统中，我们在实现时，也是使用了现成的框架，基于SuperSocket的WebSocket服务器框架SuperWebSocket，其实就是在SS的基础上实现了WebSocket协议，网上有源码，我在使用时只需要直接调用SuperWebSocket.dll就可以了。服务器端完成之后，需要完成的是客户端，最开始，本系统直接使用的是js实现的API接口，直接在页面调用接收进行数据操作就能完成了。之后又发现有一个基于C#实现的WebSocket客户端WebSocket4Net，这个客户端实现将js进行了封装，使用起来更加灵活，这里是对WebSocket4Net的解释说明[WebSocket4Net](http://websocket4net.codeplex.com/)，我们在实现时需要调用的是WebSocket4Net.dll。至此，有了这两个dll文件，我们的WebSocket通信机制就可以完成了。
+本系统中，我们在实现时，也是使用了现成的框架，基于SuperSocket的WebSocket服务器框架SuperWebSocket，其实就是在SS的基础上实现了WebSocket协议，网上有源码，我在使用时只需要直接调用SuperWebSocket.dll就可以了。服务器端完成之后，需要完成的是客户端，最开始，本系统直接使用的是js实现的API接口，直接在页面调用接收进行数据操作就能完成了。之后又发现有一个基于C#实现的WebSocket客户端WebSocket4Net，这个客户端实现将js进行了封装，使用起来更加灵活，这里是对WebSocket4Net的解释说明[WebSocket4Net](http://websocket4net.codeplex.com/)，我们在实现时需要调用的是WebSocket4Net.dll。至此，有了这两个dll文件，我们的WebSocket通信机制就可以完成了。  
+
 ###新的问题（应用服务器通信）
-但是，在具体系统实现时，我们还是遇到了问题，在上述的说明中，我们实现了两个TCP服务器，一个是对终端的TCP服务器，另一个是对前端的WebSocket服务器，在我们的应用中，需要实现的是TCP服务器处理后将信息发送到浏览器，因此需要TCP服务器首先将数据发送到WebSocket服务器，然后再由WebSocket服务器将数据发送到浏览器。因此，这两个服务器的通信成为我们要解决的问题。
-###服务器通信实现
+
+但是，在具体系统实现时，我们还是遇到了问题，在上述的说明中，我们实现了两个TCP服务器，一个是对终端的TCP服务器，另一个是对前端的WebSocket服务器，在我们的应用中，需要实现的是TCP服务器处理后将信息发送到浏览器，因此需要TCP服务器首先将数据发送到WebSocket服务器，然后再由WebSocket服务器将数据发送到浏览器。因此，这两个服务器的通信成为我们要解决的问题。  
+
+###服务器通信实现  
+
 SuperSocket框架的好处是可以支持多个服务器实例的同时运行，有了这个，我们可以考虑将WebSocket服务器整合到TCP服务器中，在系统启动时同时启动这两个服务器，因为这两个服务器都是基于SuperSocket框架实现，因此整合起来很容易，只需要在Bootstrap启动时多调用一个服务就可以实现，由于是通过Bootstrap方式实现，因此只需要在配置文件的`servers`节点中添加WebSocket服务器的信息即可
 
         <server name="TerminalServer" serverTypeName="TerminalSocketService" ip="Any" port="40000" maxConnectionNumber="10000">
