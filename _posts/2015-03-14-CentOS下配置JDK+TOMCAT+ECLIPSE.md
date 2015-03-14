@@ -7,7 +7,6 @@ tags:Linux
 ---
 ![Linux](http://www.mojiaqin.cn/images/2015/linux.jpg)
 
----
 
 工作需要，以后要开始转向Linux下的开发了，其实早就应该做的工作，终于可以正式的开始在Linux下做开发工作了，首先把开发环境搭好。  
 
