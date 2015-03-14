@@ -2,8 +2,8 @@
 layout: post
 title: "CentOS下配置JDK+Tomcat+Eclipse"
 description: ""
-category:工作生涯
-tags:Linux
+category: 工作生涯
+tags: [Linux]
 ---
 ![Linux](http://www.mojiaqin.cn/images/2015/linux.jpg)
 
