@@ -18,6 +18,7 @@ tags: [Linux]
 先查看系统中有没有安装好的mysql
 
 	rpm -qa | grep mysql
+
 一般都是会有的，有则进行卸载
 
 	rpm -e mysql 或 rpm -e --nodeps mysql
@@ -25,8 +26,9 @@ tags: [Linux]
 可以通过yum形式安装的MySQL版本
 
 	yum list | grep mysql
+
 我的是显示了下面的版本信息：  
-![Linux](http://www.mojiaqin.cn/images/2015/0324/mysql.png)
+![mysql](http://www.mojiaqin.cn/images/2015/0324/mysql.png)
 
 一般需要安装 mysql、mysql server和mysql devel三个版本  
 通过如下命令安装
@@ -35,12 +37,15 @@ tags: [Linux]
 
 安装成功后通过
 
-	rpm -qi mysql -server 查看mysql server的版本
+	rpm -qi mysql -server
+
+查看mysql server的版本
 
 通常安装好的都不是最新版哦。  
 可以通过下面的命令
 
 	service mysqlld start
+
 来启动mysql服务
 
 想要查看是否是开机启动的服务，通过下面命令实现
@@ -78,10 +83,12 @@ mysql数据库文件安装地址
 CentOS6.6操作系统，直接通过如下命令
 
 	yum install nginx
+
 来安装是不行的，要先处理安装源，下面是安装完整流程，十分简单：  
 1、先执行源的处理：
 
 	rpm -ivh http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm
+
 2，查看yum安装的nginx信息
 
 	yum info nginx
@@ -93,16 +100,17 @@ CentOS6.6操作系统，直接通过如下命令
 4，启动服务
 
 	services nginx start
+
 5，停止服务
 
 	services nginx stop
 
 ###三、配置Nginx和Tomcat
 
-1，进入配置文件目录
+1，进入配置文件目录  
 cd /etc/nginx
 
-2，编辑文件
+2，编辑文件  
 vi nginx.conf
 
 
@@ -146,7 +154,7 @@ vi nginx.conf
       ip_hash;
     }
 
- 	 server{
+	server{
        listen 80;
        server_name localhost;
 
@@ -184,7 +192,7 @@ vi nginx.conf
         {
                 expires 1h;
         }
-}
+	}
 
 
 4，查看配置文件是否正确
@@ -192,7 +200,7 @@ vi nginx.conf
 	nginx -t
 
 如果有问题对应进行修改既可，不断查看直到出现如下信息，表示没有问题了  
-nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok  
 nginx: configuration file /etc/nginx/nginx.conf test is successful
 
 
@@ -200,6 +208,7 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
 配置好之后，输入
 
 	service nginx start 
+
 启动nginx，浏览器输入localhost，如果调到了tomcat原有的默认页面说明已经配置成功了。
 
 
