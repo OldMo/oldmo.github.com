@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>我们的记忆</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('digital-7_mono.ttf') format("truetype");
+		}
+	</style>
+	<link href="css/default.css" type="text/css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/tag.css" />
+	<script type="text/javascript" src="js/tag.js"></script>	
+	<script type="text/javascript" src="js/garden.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+</head>
+
+<body>
+	<div id="mainDiv">
+		
+			<div class ="tags">
+				<p>我们的记忆...很多很多...</p>
+				<div id="tag">
+					<a href="#">火车相遇</a>
+					<a href="#" class="red">食堂偶遇</a>
+					<a href="#">校运会的好感</a>
+					<a href="#">你的相恋</a>
+					<a href="#" class="blue">你的分手</a>
+					<a href="#">给你买果冻</a>
+					<a href="#" class="red">陪你短信聊天</a>
+					<a href="#" class="yellow">七天的恋爱</a>
+					<a href="#">期末的表白</a>
+					<a href="#" class="red">寒假的相恋</a>
+					<a href="#">第一个情人节</a>
+					<a href="#" class="blue">出游木兰</a>
+					<a href="#">校园雪景</a>
+					<a href="#" class="red">圣诞</a>
+					<a href="#">植物园</a>
+					<a href="#" class="red">菊花展</a>
+					<a href="#">生气后要分手</a>
+					<a href="#" class="red">油菜花</a>
+					<a href="#" class="blue">频繁的吵架</a>
+					<a href="#">我的小气</a>
+					<a href="#" class="blue">毕业旅行</a>
+					<a href="#">异地相恋</a>
+					<a href="#">视频聊天</a>
+					<a href="#" class="yellow">未来</a>
+					<a href="#">东湖游</a>
+					<a href="#" class="yellow">虎子</a>
+					<a href="#">羽泉演唱会</a>
+					<a href="#">南昌</a>
+					<a href="#" class="yellow">徽州古城</a>
+					<a href="#">宏村</a>
+					<a href="#">西递</a>
+					<a href="#" class="yellow">黄山</a>
+					<a href="#">合肥</a>
+					<a href="#">漓江</a>
+					<a href="#" class="yellow">阳朔</a>
+				</div>
+			</div>
+			<div id="loveHeart">
+				<canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+						蒋小婷,我们已经一起走了这么久了哦~
+						<div id="elapseClock"></div>
+					</div>
+					<div id="loveu">
+						而且还会一直走...直到老...<br/>
+						<div class="signature">-- 爱你的小傻</div>
+					</div>
+				</div>
+			</div>
+		
+	</div>
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var together = new Date();
+		together.setFullYear(2009, 1, 30);
+		together.setHours(21);
+		together.setMinutes(30);
+		together.setSeconds(55);
+		together.setMilliseconds(0);
+		
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+		    document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				startHeartAnimation();
+			}, 5000);
+
+			timeElapse(together);
+			setInterval(function () {
+				timeElapse(together);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
+</body>
+</html>

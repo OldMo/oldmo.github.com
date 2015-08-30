@@ -7,7 +7,7 @@ icon: glyphicon-heart
 
 ### 关于我
 
-> 待补充 
+> 不是莫老爷  待补充 ....
 
 ---
 
@@ -32,11 +32,15 @@ icon: glyphicon-heart
 
 ---
 
-#### 友情链接
+#### 价值博客们
 
-[羡辙杂俎](http://zhangwenli.com/blog) \| [Anotherhome](https://www.anotherhome.net) \| [Reverland](http://reverland.org/) \| [ZhiLi](http://lizhipower.github.io/) \| [Simmer](http://simmer-jun.github.io/) \| [awthink](http://awthink.net/) \| [Aralic](http://aralic.github.io/) \| [zchen9](http://www.chen9.info/) \| [wuhuaji](http://wuhuaji.me/) \| [lisheng](http://www.lishengcn.cn/) \| [马天翼](http://www.fkysly.com/)
-
-Comment below to exchange link with me.  
+[刘未鹏  Mind Hacks](http://mindhacks.cn/)  
+[陈皓  酷壳](http://coolshell.cn/)   
+[Fenng  闲思录](http://dbanotes.net/)   
+[阮一峰  阮一峰的网络日志](http://www.ruanyifeng.com/blog/)   
+[池建强  MacTalk](http://macshuo.com/)
+ 
 
 ---
+
 
