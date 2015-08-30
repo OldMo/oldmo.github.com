@@ -21,7 +21,8 @@ tags: ""
 4，RequestInfo中不同的key被对应的command执行。  
 
 #####文档和代码例子的学习
-这两项是学习SS必备的也是唯一的途径，边看文档边调例子，例子都调通了，基本的了解也就到位了。
+这两项是学习SS必备的也是唯一的途径，边看文档边调例子，例子都调通了，基本的了解也就到位了。  
+
 ######例子一：Basic系列
 要使用SS框架，必须引入<b>SuperSocket.Common.dll, SuperSocket.SocketBase.dll, SuperSocket.SocketEngine.dll,log4net.dll</b>到项目中，在对应的源码文件夹下的bin/Debug目录下可以找到这些dll文件。这个例子可以直接启动，可以根据自己的要求修改一下端口试试，启动好服务器端，就可以通过客户端测试了，哪里来的客户端？Telnet，难以理解，有些人连这个也不知道，直接win键，搜索中输入telnet，就能找到telnet.exe了，运行即可。输入命令 <b>open localhost 2012</b>  就可以连上服务器了，这时就可以看例子的代码，边玩边调试。
 
