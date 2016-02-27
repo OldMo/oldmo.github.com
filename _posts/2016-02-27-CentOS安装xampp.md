@@ -13,25 +13,25 @@ tags: ""
 ###二、下载xampp
 
 <pre><code>
-		wget http://sourceforge.net/projects/xampp/files/XAMPP%20Linux/1.8.3/xampp-linux-x64-1.8.3-1-installer.run/download
+	wget http://sourceforge.net/projects/xampp/files/XAMPP%20Linux/1.8.3/xampp-linux-x64-1.8.3-1-installer.run/download
 </pre></code>
 
 ###三、下载完以后，给该文件添加执行权限：
 
 <pre><code>
-		chmod a+x xampp-linux-x64-1.8.3-a-installer.run
+	chmod a+x xampp-linux-x64-1.8.3-a-installer.run
 </pre></code>
 
 ###四、安装xampp过程如下：
 
 <pre><code>
-		[root@job2016 src]# ./xampp-linux-x64-1.8.3-1-installer.run
+	[root@job2016 src]# ./xampp-linux-x64-1.8.3-1-installer.run
 </pre></code>
 
 ###五、安装后的文件在 
 
 <pre><code>
-		/opt/lamp
+	/opt/lamp
 </pre></code>
 
 ###六、启动xampp:
