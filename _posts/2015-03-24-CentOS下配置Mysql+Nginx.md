@@ -11,7 +11,7 @@ tags: [Linux]
 接上，这回开始安装数据库以及web服务器了，Apache和Nginx都不熟练，现在nginx用于反向代理非常厉害，同时对于处理并发的能力也很强，所以既然都是新学，就选择使用Nginx，首先安装Mysql和Nginx，之后配置Nginx和Tomcat的代理，用于解析Java web项目。  
 
 
-###一、Mysql 安装
+### 一、Mysql 安装
 
 直接通过yum形式安装MYSQL，无需独立下载
 
@@ -78,7 +78,7 @@ mysql数据库文件安装地址
 
 
 
-###二、安装Nginx
+### 二、安装Nginx
 
 CentOS6.6操作系统，直接通过如下命令
 
@@ -105,7 +105,7 @@ CentOS6.6操作系统，直接通过如下命令
 
 	services nginx stop
 
-###三、配置Nginx和Tomcat
+### 三、配置Nginx和Tomcat
 
 1，进入配置文件目录  
 cd /etc/nginx
@@ -213,7 +213,7 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
 
 
 
-###遇到问题及解决
+### 遇到问题及解决
 出现502 Bad Gateway 错误  
 搜了一下无头绪，查看/var/log/nginx下的error.log文件，看到了如下信息提示：
  *1 connect() to [::1]:8080 failed (13: Permission denied) while connecting to upstream, client: 127.0.0.1,  
@@ -235,7 +235,7 @@ vi /etc/selinux/config
 重启完成后重新启动nginx和tomcat，输入localhost,发现已经能跳转到tomcat的主页面了，说明已经配置成功。
 
 
-###完工
+### 完工
 基本上配置了整个CentOS下的Java Web开发环境，接下来就是开发工作了。
 
 PS:Vim编辑器好像还不错的样子，咩哈哈！

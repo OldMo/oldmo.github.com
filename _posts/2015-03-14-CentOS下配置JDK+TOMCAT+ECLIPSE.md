@@ -11,9 +11,9 @@ tags: [Linux]
 工作需要，以后要开始转向Linux下的开发了，其实早就应该做的工作，终于可以正式的开始在Linux下做开发工作了，首先把开发环境搭好。  
 
 
-###一、JDK 安装
+### 一、JDK 安装
 
-#####1.1、下载JDK
+##### 1.1、下载JDK
 
 下载地址:http://www.oracle.com/technetwork/cn/java/javase/downloads/jdk7-downloads-1880260-zhs.html 
 
@@ -29,10 +29,10 @@ i386, i586说明是32位的内核, 跑的是32位的系统
 	* jdk-7u75-linux-i586.tar.gz（32位）
 	* jdk-7u75-linux-x64.rpm
 
-#####1.2、安装JDK
+##### 1.2、安装JDK
 tar.gz和rpm方式安装有些许不同： 
  
-######（1）：tar.gz 方式安装JDK
+###### （1）：tar.gz 方式安装JDK
 
 //建立/usr/lib/jvm 目录
 
@@ -47,7 +47,7 @@ tar.gz和rpm方式安装有些许不同：
 	sudo mv jdk1.7.0_75 /usr/lib/jvm
 
 
-######（2）：rpm 方式安装JDK
+###### （2）：rpm 方式安装JDK
 
 首先卸载系统自带的JDK
 
@@ -61,7 +61,7 @@ tar.gz和rpm方式安装有些许不同：
 
 	rpm -ivh jdk-7u75-linux-x64.rpm  安装
 
-####1.3、配置环境变量
+#### 1.3、配置环境变量
 打开系统启动配置文件
 
 	vi /etc/profile
@@ -96,7 +96,7 @@ tar.gz和rpm方式安装有些许不同：
 	Java HotSpot(TM) 64-Bit Server VM (build 24.75-b04, mixed mode)
 
 
-####1.4、编写测试
+#### 1.4、编写测试
 
 建立代码文件夹
 
@@ -129,7 +129,7 @@ tar.gz和rpm方式安装有些许不同：
 
 <b>JDK安装成功！</b>
 
-###二、安装Tomcat7.0
+### 二、安装Tomcat7.0
 
 1、下载地址 ![地址](http://tomcat.apache.org/download-70.cgi)
 下载其中的Core部分下的tar.gz文件
@@ -155,7 +155,7 @@ tar.gz和rpm方式安装有些许不同：
 浏览器中输入：http://localhost:8080
 
 
-###三、安装Eclipse
+### 三、安装Eclipse
 
 由于安装环境主要是用于WEB开发，所以下载的是jee版的Eclipse
 
@@ -181,5 +181,5 @@ tar.gz和rpm方式安装有些许不同：
 根据网上提供的方式，重新解压缩一下可以解决这个问题，如果重新解压缩还不行，最好就重新下载一份，基本上是不会有这个问题的了。
 
 
-###安装Nginx
+### 安装Nginx
 待续
