@@ -7,34 +7,40 @@ tags: ""
 ---
 
 记录在远程服务器上部署xampp并进行管理的过程。
+===================
 
-###一、通过putty连接到远程服务器
+### 一、通过putty连接到远程服务器
+===================
 
-###二、下载xampp
-
+### 二、下载xampp
+===================
 <code>
 wget http://sourceforge.net/projects/xampp/files/XAMPP%20Linux/1.8.3/xampp-linux-x64-1.8.3-1-installer.run/download
 </code>
 
-###三、下载完以后，给该文件添加执行权限：
+###三、下载完以后，给该文件添加执行权限
+===================
 
 <code>
 chmod a+x xampp-linux-x64-1.8.3-a-installer.run
 </code>
 
-###四、安装xampp过程如下：
+###四、安装xampp过程
+===================
 
 <code>
 [root@job2016 src]# ./xampp-linux-x64-1.8.3-1-installer.run
 </code>
 
 ###五、安装后的文件在 
+===================
 
 <code>
 /opt/lamp
 </code>
 
-###六、启动xampp:
+###六、启动xampp
+===================
 
 <pre><code>
 [root@job2016 lampp]# /opt/lampp/lampp start
@@ -46,7 +52,8 @@ XAMPP: Starting ProFTPD...fail.
 XAMPP:  Another FTP daemon is already running.
 </code></pre>
 
-###七、停止xampp：
+###七、停止xampp
+===================
 
 <pre><code>
 [root@job2016 lampp]# /opt/lampp/lampp stop
@@ -56,14 +63,16 @@ XAMPP: Stopping MySQL...ok.
 XAMPP: Stopping ProFTPD...not running.
 </code></pre>
 
-###八、添加开机启动：
+###八、添加开机启动
+===================
 Ln命令：
 
 <code>
 	#ln –s /opt/lampp/xampp /etc/rc.d/init.d/xampp
 </code>
 
-###九、如果执行完上面这条还不能开机自动启动，再执行下面3条语句。
+###九、如果执行完上面这条还不能开机自动启动，再执行下面3条语句
+===================
 
 <code>
 	#chkconfig --add xampp  
@@ -72,6 +81,7 @@ Ln命令：
 </code>
 
 ###十、卸载xampp
+===================
 
 <code>
 	#/opt/lampp/xampp stop  
@@ -80,8 +90,10 @@ Ln命令：
 
 
 ###部署可能出现问题
+===================
 
-####问题1：访问网址时如果出现下面的画面 
+####问题1：访问网址时如果出现下面的画面
+-------------------- 
 
 ![forbidden](http://www.mojiaqin.cn/images/2016/0227/forbidden.jpg)
 
@@ -91,6 +103,7 @@ Ln命令：
 
 
 ####问题2：无法使用mysql命令
+--------------------
 root@DB-02 ~]# mysql -u root  
 -bash: mysql: command not found
 
@@ -103,6 +116,7 @@ root@DB-02 ~]# mysql -u root
 
 
 ####问题3：修改mysql的root密码，因为默认为空 
+--------------------
 解决：先找到mysql (find /opt/ -name mysql)如图 
  ![mysql](http://www.mojiaqin.cn/images/2016/0227/mysql.jpg)
 这里看到有bin/mysql，执行命令/opt/lampp/bin/mysql -uroot -p不需要密码进入数据库。 
@@ -116,6 +130,7 @@ root@DB-02 ~]# mysql -u root
 
 
 ####问题4：无法访问phpmyadmin，返回403错误
+--------------------
 需要修改/opt/lampp/etc/extra下的文件httpd-xmapp.conf，找到如下内容：
 
 `
@@ -164,6 +179,7 @@ root@DB-02 ~]# mysql -u root
 `
 
 ####问题5：修改了mysql的root登陆密码后phpmyadmin不能登陆 
+--------------------
 
 修改了root密码后不能登录phpmyadmin
  ![phpmyadmin](http://www.mojiaqin.cn/images/2016/0227/phpmyadmin.png)
@@ -171,13 +187,14 @@ root@DB-02 ~]# mysql -u root
 解决：找到config.inc.php文件（find /opt/ -name config.inc.php）
  ![configinc](http://www.mojiaqin.cn/images/2016/0227/configinc.jpg)
  
-然后vim /opt/lampp/phpmyadmin/config.inc.php如图 
+然后vim /opt/lampp/phpmyadmin/config.inc.php如图修改密码   
  ![configinc2](http://www.mojiaqin.cn/images/2016/0227/configinc2.jpg)
  
 之后就可以打开phpmyadmin了
 
 
-####phpmyadmin管理数据库时出现问题
+####问题6：phpmyadmin管理数据库时出现问题  
+
 总是提示一些表不存在的问题，如“MySQL error - #1932 - Table 'phpmyadmin.pma user config' doesn't exist in engine
 
 解决：这是由于数据库xampp版本的问题导致初始化时phpmyadmin中的表格与配置文件有出入，需要根据以下几个步骤进行修改：
