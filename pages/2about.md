@@ -51,6 +51,7 @@ icon: glyphicon-heart
 [xufei  民工的砖墙](http://blog.xufei.gitpress.org/)  
 [crifan  在路上](http://www.crifan.com/)  
 [王垠  当然我们在扯淡](http://www.yinwang.org/)
+[异次元sky](http://www.ycysky.com/)
  
 
 ---
